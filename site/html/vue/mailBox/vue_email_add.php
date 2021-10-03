@@ -1,9 +1,9 @@
 <?php
-$titre = 'SpellBook - Ajouter un algorithme';
+$titre = 'SpellBook - Ajouter un boiteMail';
 
-// vue_algorithme_add.php
+// vue_email_add.php
 // Date de création : 10/01/2021
-// Fonction : vue pour ajouter un algorithme
+// Fonction : vue pour ajouter un boiteMail
 // __________________________________________
 
 // Tampon de flux stocké en mémoire

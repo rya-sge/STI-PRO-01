@@ -7,23 +7,16 @@
 
 require "modele/modele_BDD.php";
 require "modele/modele_user.php";
+require "modele/modele_email.php";
 require "modele/modele_administration.php";
 require "modele/modele_algorithme.php";
-require "modele/modele_code_source.php";
-require "modele/modele_pseudo_code.php";
-require "modele/modele_langage.php";
-require "modele/modele_artefact.php";
-require "modele/modele_famille.php";
-require "modele/modele_note.php";
+
 require "library/permission.php";
 require "library/erreur.php";
 require "library/traitementFichier.php";
 
-define("ROOT_PSEUDO_CODE", "vue/pseudo_code");
 define("ROOT_PROFIL", "vue/profil/");
-define("ROOT_ALGORITHME", "vue/algorithme");
-define("ROOT_CODE_SOURCE", "vue/code_source");
-define("ROOT_FICHIERS", "contenu/fichiers/");
+define("ROOT_MAILBOX", "vue/mailbox");
 define("NON_VALIDE", "En attente de validation");
 define("VALIDE", "Validé");
 define ("EXTENSIONS_DOC", array('.doc', '.docx', '.odt', '.pdf', '.zip', '.tar', '.rar', '.7z', '.txt'));
@@ -37,6 +30,22 @@ function accueil()
     } else {
         require "vue/vue_visiteur.php";
     }
+}
+
+function mailInbox(){
+    $message = listMailInbox();
+    require ROOT_MAILBOX. "/vue_inbox.php";
+}
+
+function readMessage(){
+    $message = getMessageContent();
+    if (isset($_GET['qIdLieu']))
+    {
+            updLieu($_POST, $_GET['qIdLieu']);
+            @header("location: index.php?action=vue_lieu&qIdLieu=" . $_GET['qIdLieu']);//redirection ves la page de confirmation de modification
+            exit;
+    }
+    require ROOT_MAILBOX. "/vue_inbox.php";
 }
 
 // ------------ Autres ---------------------

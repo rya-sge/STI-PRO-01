@@ -27,7 +27,7 @@ ob_start();
             </p>
 
             <?php require 'vue/code_source/vue_code_source_contribution.php'; ?>
-            <?php require 'vue/algorithme/vue_algorithme_contribution.php'; ?>
+            <?php require 'vue/boiteMail/vue_algorithme_contribution.php'; ?>
             <?php require 'vue/pseudo_code/vue_pseudo_code_contribution.php'; ?>
         </div>
     </div>
@@ -37,6 +37,5 @@ ob_start();
 $contenu = ob_get_clean();
 require 'gabarit.php';
 ?>  
-      
       
       

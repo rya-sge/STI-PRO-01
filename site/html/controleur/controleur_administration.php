@@ -41,7 +41,7 @@ function validationArtefact()
 }
 
 /*
- * @brief gère la validation d'un algorithme
+ * @brief gère la validation d'un boiteMail
  */
 function validationAlgorithme()
 {

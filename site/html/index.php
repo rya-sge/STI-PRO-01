@@ -9,12 +9,6 @@ session_start();
 
 require  'controleur/controleur.php';
 require  'controleur/controleur_user.php';
-require  'controleur/controleur_contribution.php';
-require  'controleur/controleur_administration.php';
-require  'controleur/controleur_algorithme.php';
-require  'controleur/controleur_artefact.php';
-require  'controleur/controleur_code_source.php';
-require  'controleur/controleur_pseudo_code.php';
 
 try
 {
@@ -41,6 +35,18 @@ try
 		case 'vue_passwd_upd':
 			updatePasswd();
 			break;
+
+
+		///inbox
+		case 'vue_inbox':
+		    mailInbox();
+            break;
+
+        case 'vue_message_read':
+                readMessage();
+                break;
+
+
 		////Contribution
 		case 'vue_contribution_gestion':
             isConnected();

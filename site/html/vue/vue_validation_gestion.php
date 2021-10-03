@@ -25,7 +25,7 @@ ob_start();
                     echo $_SESSION['modif']="";
                 }?>
             </p>
-            <?php require 'vue/algorithme/vue_algorithme_validation.php';?>
+            <?php require 'vue/boiteMail/vue_algorithme_validation.php';?>
             <?php require 'vue/pseudo_code/vue_pseudo_code_validation.php';?>
             <?php require 'vue/code_source/vue_code_source_validation.php';?>
         </div>

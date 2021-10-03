@@ -20,8 +20,8 @@ function getIdUser($login)
     $db = getBD();
     // Création de la string pour la requête
     $requete = "SELECT id 
-                FROM Utilisateur 
-                WHERE nom='" . $login . "' 
+                FROM user
+                WHERE name='" . $login . "'
                     OR email='" . $login . "'";
     // Exécution de la requete
     $resultats = $db->query($requete);
@@ -39,9 +39,9 @@ function updateRoleByName($nom, $idRole)
 {
     $db = getBD();
     // Création de la string pour la requête
-    $requete = $db->prepare("UPDATE Utilisateur
+    $requete = $db->prepare("UPDATE user
                                        SET idRole = '" . $idRole . "'
-                                       WHERE nom = '" . $nom . "'
+                                       WHERE name = '" . $nom . "'
                                        AND id !='" . $_SESSION['idUser'] ."'
                                        AND id != 1;");
     // Exécution de la requete
@@ -62,7 +62,7 @@ function updateRoleById($idUtilisateur, $idRole)
 {
     $db = getBD();
     // Création de la string pour la requête
-    $requete = $db->prepare("UPDATE Utilisateur
+    $requete = $db->prepare("UPDATE user
                                         SET idRole = '" . $idRole . "'
                                        WHERE id = '" . $idUtilisateur . "'");
     // Exécution de la requete
@@ -85,8 +85,8 @@ function getUserByLogin($login)
     $db = getBD();
     // Création de la string pour la requête
     $requete = "SELECT * 
-                FROM Utilisateur 
-                WHERE nom ='" . $login . "'";
+                FROM user
+                WHERE name ='" . $login . "'";
     // Exécution de la requete
     return $db->query($requete);
 }
@@ -108,7 +108,7 @@ function infoUtilisateur()
     $reponse = getUserByLogin($_SESSION['login']);
     $donnees = $reponse->fetch();
     //Insère dans le tableau précédemment crée les informations de l'utilisateur
-    if (empty($donnees['nom'])) {
+    if (empty($donnees['name'])) {
         throw new Exception("Le nom d'utilisateur n'existe pas");
     }
     $infoUser = array(
@@ -130,16 +130,16 @@ function checkLogin($postArray)
     erreurUrl($username);
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();
-    if (empty($resultats['nom'])) {
+    if (empty($resultats['name'])) {
         throw new Exception("Les données d'authentification sont incorrectes");
     }
-    $hash = $resultats['motDePasse'];
+    $hash = $resultats['password'];
     if (password_verify($passwdPost, $hash)) {
         //Initialisation du tableau qui va contenir les informations de l'utilisateur.
         $infoUser = array(
             'email' => $resultats['email'],
             'idUser' => $resultats['id'],
-            'login' => $resultats['nom'],
+            'login' => $resultats['name'],
             'idRole' => $resultats['idRole'],
         );
     } else {
@@ -180,25 +180,22 @@ function ajoutUser($postArray)
     //Hashage mdp
     $passwdHash = password_hash($passwdPost, PASSWORD_DEFAULT);
     $passwd = $passwdHash;
-    $dateInscription = date('Y-m-d H:i:s'); //Source : http://www.pontikis.net/tip/?id=18
     // test si le login ou l'email existe déjà pour éviter qu'il y ait deux utilisateurs ayant le même login ou la même adresse email
     $reqSelect = "SELECT * 
-                 FROM Utilisateur 
-                 WHERE nom='" . $login . "'
+                 FROM user
+                 WHERE name='" . $login . "'
                     OR email='" . $email . "';";
     $res = $db->query($reqSelect);
     $ligne = $res->fetch(); // récupère la valeur du login sélectionné s'il y en a un
     // Test le résultat
-    if (empty($ligne['nom'])) {
+    if (empty($ligne['name'])) {
         // ajout de l'utilisateur
-        $req = $db->prepare('INSERT INTO Utilisateur (nom, email, motDePasse, dateInscription)
-                    VALUES (:nom, :email, :motDePasse,:dateInscription)');
+        $req = $db->prepare('INSERT INTO user (name, email, password)
+                    VALUES (:name, :email, :password)');
         $req->execute(array(
-            'nom' => $login,
+            'name' => $login,
             'email' => $email,
-            'motDePasse' => $passwd,
-            'dateInscription' => $dateInscription,
-
+            'password' => $passwd,
         ));
     } else {
         throw new Exception("L'utilisateur ne peut pas être ajouté car il existe déjà.");
@@ -218,25 +215,25 @@ function changePasswd($postArray)
     $NPasswdConf = $postArray['fNPasswdConf'];
     $db = getBD();
     //Sélection du mot de passe de l'utilisateur dans la BDD
-    $requete = "SELECT motDePasse 
-              FROM Utilisateur 
-              WHERE nom ='" . $_SESSION['login'] . "';";
+    $requete = "SELECT password
+              FROM user
+              WHERE name ='" . $_SESSION['login'] . "';";
     $resultats = $db->query($requete);
     $passwd = $resultats->fetch();
 
     if (!empty($resultats)) {
         //erreurPasswd($NPasswdConf,$NPasswdPost); //Vérifie que les mots de passes correspondent et soient assez long
         erreurPasswd($NPasswdConf, $NPasswdPost);
-        $hash = $passwd['motDePasse'];
+        $hash = $passwd['password'];
         if (password_verify($passwdOld, $hash)) //Vérification du mot de passe
         {
             $passwdHash = password_hash($NPasswdPost, PASSWORD_DEFAULT); //Hachage du mot de passe
             $passwd = $passwdHash;
             //Mise à jour des informations
-            $req = $db->prepare("UPDATE Utilisateur SET motDePasse=:motDePasse 
+            $req = $db->prepare("UPDATE user SET password=:password
                 WHERE id='" . $_SESSION['idUser'] . "';");
             $req->execute(array(
-                'motDePasse' => $passwd,
+                'password' => $passwd,
             ));
             $_SESSION['modif'] = "Votre mot de passe a été modifié";
         } else {
@@ -262,18 +259,18 @@ function changeLogin($postArray)
     if ($NLogin != $_SESSION['login']) {
         // test si le login ou l'email existe déjà pour éviter qu'il y ait deux utilisateurs ayant le même login
         $reqSelect = "SELECT * 
-                     FROM Utilisateur 
-                     WHERE nom='" . $NLogin . "' 
-                        AND nom !='" . $_SESSION['login'] . "';";
+                     FROM user
+                     WHERE name='" . $NLogin . "'
+                        AND name !='" . $_SESSION['login'] . "';";
         $res = $db->query($reqSelect);
         $ligne = $res->fetch(); // récupère la valeur du login sélectionné s'il y en a un
         // Test le résultat
-        if (empty($ligne['nom'])) {
+        if (empty($ligne['name'])) {
             //Mise à jour des informations
-            $req = $db->prepare("update Utilisateur set nom=:nom 
+            $req = $db->prepare("update user set name=:name
             WHERE id='" . $_SESSION['idUser'] . "';");
             $req->execute(array(
-                'nom' => $NLogin,
+                'name' => $NLogin,
             ));
             $_SESSION['login'] = $NLogin;
             $_SESSION['modif'] = "Votre nom d'utilisateur a été modifié";
@@ -301,13 +298,13 @@ function changeEmail()
     if ($NEmail != $_SESSION['email']) {
         // test si l'email existe déjà pour éviter qu'il y ait deux utilisateurs ayant la même adresse email
         $reqSelect = "SELECT * 
-                     FROM Utilisateur 
+                     FROM user
                      WHERE email='" . $NEmail . "' ;";
         $res = $db->query($reqSelect);
         $ligne = $res->fetch(); // récupère l'utilisateur sélectionné s'il y en a un
         // Test le résultat
         if (empty($ligne['id'])) {
-            $req = $db->prepare("UPDATE Utilisateur SET email=:email
+            $req = $db->prepare("UPDATE user SET email=:email
                 WHERE id='" . $_SESSION['idUser'] . "';");
             $req->execute(array(
                 'email' => $NEmail,
@@ -329,7 +326,7 @@ function changeEmail()
 function delUser($idUser)
 {
     $db = getBD();
-    $requete = 'DELETE FROM Utilisateur 
+    $requete = 'DELETE FROM user
                 WHERE id ="' . $idUser . '";';
     $db->exec($requete);
 }

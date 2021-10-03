@@ -1,7 +1,7 @@
 <?php
-// vue_algorithme_gestion_page.php
+// vue_send.php
 // Date de création : 15/01/20121
-// Fonction : vue pour afficher un algorithme donné
+// Fonction : vue pour afficher un boiteMail donné
 // __________________________________________
 ?>
 

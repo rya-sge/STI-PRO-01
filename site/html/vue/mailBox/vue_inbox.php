@@ -1,13 +1,9 @@
 <?php
-// vue_pseudo_code.php
-// Date de création : 09/01/2021
-// Fonction : vue pour afficher une liste de codes sources
+// vue_inbox.php
+// Date de création : 03/10/20121
+// Fonction : vue pour afficher l'ensemble des messages d'un utilisateur
 // __________________________________________
 
-$titre ='TheDeveloperSpellbook - Gestion des codes sources';
-
-// Tampon de flux stocké en mémoire
-ob_start();
 
 ?>
 <h1>Liste</h1>
@@ -20,7 +16,7 @@ ob_start();
                     echo $_SESSION['modif'];
                     echo $_SESSION['modif']="";
                 }?>
-            <?php require 'vue/code_source/vue_code_source_liste.php';?>
+                <?php require 'vue/mailBox/vue_inbox_list.php';?>
         </div>
 </article>
 <hr/>

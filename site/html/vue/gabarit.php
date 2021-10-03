@@ -237,8 +237,8 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
                 </a>
             </li>
             <li>
-                <a class="alone" href="index.php?action=vue_contribution_gestion">
-                    <i class="fa fa-upload fa-lg"></i>Mes Contributions</a>
+                <a class="alone" href="index.php?action=vue_inbox">
+                    <i class="fa fa-upload fa-lg"></i>InBox</a>
             </li>
             <?php
             if (testR2() == true) { ?>

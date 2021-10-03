@@ -70,8 +70,8 @@ function listeAlgorithmeValidation()
 
 /*
  * @brief Sélection des algorithmes en attente de validation
- * @param id de l'algorithme dont on souhaite récupérer les infos dans la BDD
- * @return tuple de l'algorithme recherché
+ * @param id de l'boiteMail dont on souhaite récupérer les infos dans la BDD
+ * @return tuple de l'boiteMail recherché
  */
 function infoAlgorithme($id)
 {
@@ -86,8 +86,8 @@ function infoAlgorithme($id)
 }
 
 /*
- * @brief Validation d'un algorithme
- * @param id de l'algorithme
+ * @brief Validation d'un boiteMail
+ * @param id de l'boiteMail
  */
 function validerAlgorithme($idAlgorithme, $idUtilisateur)
 {
@@ -100,15 +100,15 @@ function validerAlgorithme($idAlgorithme, $idUtilisateur)
     // Exécution de la requete
     $requete->execute();
     if ($requete->rowCount()) {
-        $_SESSION['modif'] = "L'algorithme a été validé";
+        $_SESSION['modif'] = "L'boiteMail a été validé";
     } else {
-        $_SESSION['modif'] = "Erreur : L'algorithme n'a pas pu être validé";
+        $_SESSION['modif'] = "Erreur : L'boiteMail n'a pas pu être validé";
     }
 }
 
 
 /*
- * @brief Ajouter un algorithme
+ * @brief Ajouter un boiteMail
  * @param Donnée POST du formulaire
  * @details
  * Source utilisée pour le traitement des checkbox : https://makitweb.com/get-checked-checkboxes-value-with-php/
@@ -123,7 +123,7 @@ function ajoutAlgorithme($postArray)
     $tag = traitementText($tag);
     $nom = traitementText($nom);
 
-    // test si le nom de l'algorithme existe déjà pour éviter des erreurs sql sur les doublons
+    // test si le nom de l'boiteMail existe déjà pour éviter des erreurs sql sur les doublons
     $reqSelect = "SELECT id 
                   FROM Algorithme 
                   WHERE nom = '" . $nom . "';";
@@ -143,7 +143,7 @@ function ajoutAlgorithme($postArray)
             'dateModification' => date('Y-m-d H:i:s'),
             'idUtilisateur_Createur' => $_SESSION['idUser'],
         ));
-        $_SESSION['modif'] = "L'algorithme a été ajouté. Il est en attente de validation de la part d'un modérateur";
+        $_SESSION['modif'] = "L'boiteMail a été ajouté. Il est en attente de validation de la part d'un modérateur";
         $idAlgorithme = $db->lastInsertId();
 
         if (isset($postArray['idFamille'])) {
@@ -167,13 +167,13 @@ function ajoutAlgorithme($postArray)
             }
         }
     } else {
-        throw new Exception("L'algorithme ne peut pas être ajouté car il existe déjà.");
+        throw new Exception("L'boiteMail ne peut pas être ajouté car il existe déjà.");
     }
 }
 
 
 /*
- * @brief chercher un algorithme
+ * @brief chercher un boiteMail
  * @param idAlgorithme à chercher
  * @param idUtilisateur
  * @return objet PDOStatement
@@ -191,8 +191,8 @@ function chercherUnAlgorithme($idAlgorithme, $idUtiisateur)
 }
 
 /*
- * @brief supprimer un algorithme
- * @param L'id de l'algorithme à supprimer
+ * @brief supprimer un boiteMail
+ * @param L'id de l'boiteMail à supprimer
  */
 function suppAlgorithme($idAlgorithme)
 {
@@ -202,23 +202,23 @@ function suppAlgorithme($idAlgorithme)
     //Test le résultat
     if (empty($ligne['id'])) {
         throw new Exception("La suppression n'a pas pu avoir lieu.
-                                         Etes - vous bien le créateur de cet algorithme ?");
+                                         Etes - vous bien le créateur de cet boiteMail ?");
     }
     $requete = 'DELETE 
                 FROM Algorithme 
                 WHERE id ="' . $idAlgorithme . '" ;';
     $requete = $db->exec($requete);
     if ($requete) {
-        $_SESSION['modif'] = "L'algorithme a été supprimé";
+        $_SESSION['modif'] = "L'boiteMail a été supprimé";
     } else {
-        $_SESSION['modif'] = "Erreur : L'algorithme n'a pas pu être  supprimé";
+        $_SESSION['modif'] = "Erreur : L'boiteMail n'a pas pu être  supprimé";
     }
 
 
 }
 
 /*
- * @brief effectuer une recherche d'algorithme
+ * @brief effectuer une recherche d'boiteMail
  * @param Donnée POST du formulaire
  */
 function searchAlgorithme($postArray)
