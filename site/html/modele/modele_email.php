@@ -20,7 +20,7 @@
                         recipient  = '" . $_SESSION["idUser"] . "'
                         AND id = $idMessage;";
             // Exécution de la requete
-            return $db->query($requete);
+            return $db->query($requete)->fetch();
         }
 ?>
 

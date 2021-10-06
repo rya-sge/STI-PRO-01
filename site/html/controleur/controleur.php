@@ -32,20 +32,25 @@ function accueil()
     }
 }
 
+/*
+ * Afficher la liste des messages
+ */
 function mailInbox(){
     $message = listMailInbox();
     require ROOT_MAILBOX. "/vue_inbox.php";
 }
 
 function readMessage(){
-    $message = getMessageContent();
-    if (isset($_GET['qIdLieu']))
+
+    if (isset($_GET['qIdMessage']))
     {
-            updLieu($_POST, $_GET['qIdLieu']);
-            @header("location: index.php?action=vue_lieu&qIdLieu=" . $_GET['qIdLieu']);//redirection ves la page de confirmation de modification
-            exit;
+        $resultat = getMessageContent($_GET['qIdMessage']);
+        require ROOT_MAILBOX. "/vue_message.php";
+
+    }else{
+        exit;
     }
-    require ROOT_MAILBOX. "/vue_inbox.php";
+
 }
 
 // ------------ Autres ---------------------

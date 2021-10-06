@@ -5,7 +5,6 @@
 // __________________________________________
 -->
 
-<h2>Pseudo-Code</h2>
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
