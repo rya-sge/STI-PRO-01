@@ -147,51 +147,6 @@ try
             noterArtefact(2);
             break;
 
-        //Code source
-        case 'vue_code_source_gestion':
-            isConnected();
-            codeSourceGestion();
-            break;
-        case 'vue_code_source_ajout':
-            isConnected();
-            ajouterCodeSource();
-            break;
-        case 'vue_mes_code_source_modification':
-            isConnected();
-            modifierMesCodeSource();
-            break;
-        case 'vue_code_source_telechargement_archive':
-            isConnected();
-            telechargerCodeSource('archive');
-            break;
-        case 'vue_code_source_telechargement_doc':
-            isConnected();
-            telechargerCodeSource("documentation");
-            break;
-        case 'vue_code_source_attacher_pseudo_code':
-            isConnected();
-            attacherPseudoCode();
-            break;
-
-        //pseudo-code
-        case 'vue_pseudo_code_gestion':
-            isConnected();
-            pseudoCodeGestion();
-            break;
-        case 'vue_pseudo_code_ajout':
-            isConnected();
-            ajouterPseudoCode();
-            break;
-        case 'vue_pseudo_code_telechargement':
-            isConnected();
-            telechargerPseudoCode();
-            break;
-
-        case 'vue_pseudo_code_texte':
-            isConnected();
-            afficherTexte();
-            break;
-
         //profil
 		case 'vue_profil':
             isConnected();

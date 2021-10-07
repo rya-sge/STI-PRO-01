@@ -44,33 +44,7 @@ function testR1Out()
     }
 }
 
-/*
- * @brief vérifie si l'utilisateur a un grande équivalent a 1 (administrateur) ou 2(administrateur)
- * @return true si le grade de l'utilisateur est 1, false sinon
- */
-function testR2()
-{
-	 if(isset($_SESSION['idRole']))
-	 {
-		if($_SESSION['idRole']== 2 || $_SESSION['idRole'] == 1)
-		{
-			return true;
-		}
-	 }
-	 
-	 return false;
-}
 
 
-/*
- * @brief Appel de testR2(), effectue une redirection si testR2() == False
- */
-function testR2Out()
-{
-    if(!testR2()){
-        header("location: index.php?action = vue_accueil");
-        exit;
-    }
-}
 
 ?>

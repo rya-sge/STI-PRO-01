@@ -1,7 +1,7 @@
 <?php
 $titre = 'TheDeveloperSpellbook - Liste des utilisateurs';
 
-// vue_role_gestion.php
+// vue_user_gestion.php
 // Date de création : 09/01/2021
 // Fonction : vue pour gérer les rôles des utilisateurs sur le site
 // __________________________________________
@@ -10,7 +10,7 @@ $titre = 'TheDeveloperSpellbook - Liste des utilisateurs';
 ob_start();
 
 ?>
-<h2>Gestion des rôles des utilisateurs
+<h2>Gestion des utilisateurs
     <a href='index.php?action=vue_moderateur_ajout'>
         <button type='button' class='btn btn-primary'><strong>Ajouter un modérateur</strong></button>
     </a>
@@ -37,10 +37,15 @@ ob_start();
                     ?>
                     <tr>
                         <td width="20%"><?php echo $resultat['id']; ?></td>
-                        <td width="33%"><?php echo $resultat['nom']; ?></td>
+                        <td width="33%"><?php echo $resultat['name']; ?></td>
                         <td width="33%">
-                            <a href="index.php?action=vue_moderateur_suppression&qIdUtilisateur=<?= $resultat['id']; ?>"
-                               onclick="return confirm('Etes-vous sûr de vouloir supprimer ce modérateur');">
+                            <a href="index.php?action=vue_user_delete&qIdUser=<?= $resultat['id']; ?>"
+                               onclick="return confirm('Etes-vous sûr de vouloir supprimer cet utilisateur');">
+                                <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </a>
+                            <a href="index.php?action=vue_profil_admin&qIdUser=<?= $resultat['id']; ?>">
                                 <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
                                         data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
                                 </button>
@@ -55,7 +60,7 @@ ob_start();
 <hr/>
 <?php
 $contenu = ob_get_clean();
-require 'gabarit.php';
+require 'vue/gabarit.php';
 ?>
 
 

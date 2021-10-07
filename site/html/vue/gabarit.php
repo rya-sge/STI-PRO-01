@@ -241,13 +241,13 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
                     <i class="fa fa-upload fa-lg"></i>InBox</a>
             </li>
             <?php
-            if (testR2() == true) { ?>
+            if (testR1() == true) { ?>
                 <li data-toggle="collapse" data-target="#administration" class="collapsed">
                     <a href="#"><i class="fa fa-dashboard  fa-lg"></i>Administration <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="administration">
 
-                    <?php if (testR2()) { ?>
+                    <?php if (testR1()) { ?>
                         <li class="active"><a href="index.php?action=vue_validation_gestion">Validation</a></li>
                     <?php } ?>
                     <?php if (testR1()) { ?>
