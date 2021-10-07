@@ -11,7 +11,6 @@ require "modele/modele_BDD.php";
 require "modele/modele_user.php";
 require "modele/modele_email.php";
 require "modele/modele_administration.php";
-require "modele/modele_algorithme.php";
 
 require "library/permission.php";
 require "library/erreur.php";

@@ -68,19 +68,6 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
             margin: 0px;
             line-height: 35px;
             cursor: pointer;
-            /*
-              .collapsed{
-                 .arrow:before{
-                           font-family: FontAwesome;
-                           content: "\f053";
-                           display: inline-block;
-                           padding-left:10px;
-                           padding-right: 10px;
-                           vertical-align: middle;
-                           float:right;
-                      }
-               }
-          */
         }
 
         .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -243,29 +230,13 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
             <?php
             if (testR1() == true) { ?>
                 <li data-toggle="collapse" data-target="#administration" class="collapsed">
-                    <a href="#"><i class="fa fa-dashboard  fa-lg"></i>Administration <span class="arrow"></span></a>
+                    <a href="index.php?action=vue_role_gestion"><i class="fa fa-dashboard  fa-lg"></i>Administration
+                        </a>
                 </li>
-                <ul class="sub-menu collapse" id="administration">
-
-                    <?php if (testR1()) { ?>
-                        <li class="active"><a href="index.php?action=vue_validation_gestion">Validation</a></li>
-                    <?php } ?>
-                    <?php if (testR1()) { ?>
-                        <li class="active"><a href="index.php?action=vue_role_gestion">Utilisateur</a></li>
-                    <?php } ?>
-                </ul>
             <?php } ?>
             <li>
                 <a class="alone" href="index.php?action=vue_message_add">
                     <i class="fa fa-globe fa-lg"></i>Ecrire un message</a>
-            </li>
-            <li>
-                <a class="alone" href="index.php?action=vue_code_source_gestion">
-                    <i class="fa fa-file-code-o fa-lg"></i>Code Source</a>
-            </li>
-            <li>
-                <a class="alone" href="index.php?action=vue_pseudo_code_gestion">
-                    <i class="fa fa-pencil fa-lg"></i>Pseudo Code</a>
             </li>
         </ul>
     </div>

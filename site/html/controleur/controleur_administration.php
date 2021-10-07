@@ -13,48 +13,10 @@ function roleGestion()
     require "vue/administration/vue_user_gestion.php";
 }
 
-/*
- * @brief lister le contenu (Algortihme et pseudo-code) en attente de validation
- */
-function validationGestion()
-{
-    $algorithmeUnique = listeAlgorithmeValidation();
-    $pseudoCode = listePseudoCodePourValidation();
-    $codeSource = listeCodeSourceValidation();
-    require "vue/vue_validation_gestion.php";
-}
-
-/*
- * @brief gère l'ajout d'un modérateur
- * @Details :
- * Cette fonction est actuellement vulnérable à l'attaque csrf
- */
-function ajouterModerateur()
-{
-    if (isset($_POST['AjoutModerateur'])) {
+function updUserRole(){
+    if (isset($_GET['qIdUser']) && isset($_POST['role'])) {
         try {
-            erreurXss($_POST['AjoutModerateur']);
-            updateRoleByName($_POST['nom'], 2);
-            //redirection ves la page de gestion des utilisateurs
-            @header("location: index.php?action=vue_role_gestion");
-            exit;
-        } catch (Exception $e) {
-            $_SESSION['erreur'] = $e->getMessage();
-        }
-    }
-    require "vue/vue_role_add.php";
-}
-
-/*
- * @brief gère la suppression d'un modérateur
- * @details : Le role de l'utilisateur est modifié à un rôle inférieur
- */
-function supprimerModerateur()
-{
-    if (isset($_GET['qIdUtilisateur'])) {
-        try {
-            testId($_GET['qIdUtilisateur']);
-            updateRoleById($_GET['qIdUtilisateur'], 3);
+            updateRoleById($_GET['qIdUser'], $_POST['role']);
         } catch (Exception $e) {
             $_SESSION['erreur'] = $e->getMessage();
         }
@@ -62,5 +24,4 @@ function supprimerModerateur()
     @header("location: index.php?action=vue_role_gestion");
     exit();
 }
-
 ?>

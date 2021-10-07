@@ -10,11 +10,7 @@ $titre = 'TheDeveloperSpellbook - Liste des utilisateurs';
 ob_start();
 
 ?>
-<h2>Gestion des utilisateurs
-    <a href='index.php?action=vue_moderateur_ajout'>
-        <button type='button' class='btn btn-primary'><strong>Ajouter un modérateur</strong></button>
-    </a>
-</h2>
+<h2>Gestion des utilisateurs</h2>
 <p class="textModif"><?php
     if (isset($_SESSION['modif'])) {
         echo $_SESSION['modif'];
@@ -50,6 +46,14 @@ ob_start();
                                         data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </a>
+                        </td>
+                        <td width="20%">
+                            <?php $dest = "index.php?action=vue_role&qIdUser=".$resultat['id']; ?>
+                            <form class='form' method='POST' action="<?php echo $dest ?>"
+                                  enctype="multipart/form-data">
+                                <?php require 'vue_select_role.php'; ?>
+                                <button type="submit" class="btn btn-primary" name="addRole">Envoyer</button>
+                            </form>
                         </td>
                     </tr>
                 <?php }
