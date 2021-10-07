@@ -46,7 +46,10 @@ try
                 readMessage();
                 break;
 
-
+        case 'vue_message_add':
+            addMessage();
+            break;
+            
 		////Contribution
 		case 'vue_contribution_gestion':
             isConnected();

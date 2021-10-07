@@ -53,6 +53,22 @@ function readMessage(){
 
 }
 
+function addMessage()
+{
+    //Variable post existe si l'utilisateur a cliqué sur le bouton Ajouter
+    if (isset($_POST['addMessage'])) {
+            try {
+                addMessageBdd($_POST);
+                //redirection ves la page de gestion des algorithmes
+               
+            } catch (Exception $e) {
+                $_SESSION['erreur'] = $e->getMessage();
+                //@header("location: index.php?action=vue_algorithme_add");
+            }
+    }
+    require ROOT_MAILBOX. "/vue_message_add.php";
+}
+
 // ------------ Autres ---------------------
 function erreur($msg)
 {

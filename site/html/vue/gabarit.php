@@ -256,8 +256,8 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
                 </ul>
             <?php } ?>
             <li>
-                <a class="alone" href="index.php?action=vue_algorithme_gestion">
-                    <i class="fa fa-globe fa-lg"></i>Algorithmes</a>
+                <a class="alone" href="index.php?action=vue_message_add">
+                    <i class="fa fa-globe fa-lg"></i>Ecrire un message</a>
             </li>
             <li>
                 <a class="alone" href="index.php?action=vue_code_source_gestion">
