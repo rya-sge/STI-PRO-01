@@ -5,19 +5,4 @@
 // __________________________________________
 -->
 
-<table class="table table-bordered">
-    <tr>
-        <th>ID</th>
-        <th>Date de réception</th>
-        <th>Expéditeur</th>
-        <th>Sujet</th>
-        <th>Action</th>
-    </tr>
-    <?php
-    //Affiche la liste des messages d'un utilisateur
-    foreach ($message  as $resultat) {
-    ?>
-             <?php require 'vue/mailBox/vue_message_header.php';?>
-    <?php }
-    ?>
-</table>
+

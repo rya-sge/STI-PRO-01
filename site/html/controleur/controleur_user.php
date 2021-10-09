@@ -50,7 +50,6 @@ function login()
  */
 function logout()
 {
-
     if (isset($_SESSION['idUser'])) {
         session_destroy();
         @header("location: index.php?action=vue_logout");

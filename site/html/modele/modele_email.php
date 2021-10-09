@@ -4,9 +4,12 @@
         $db = getBD();
         // Création de la string pour la requête
         $requete = "SELECT * from message
+                    LEFT JOIN user 
+                    ON sender = user.id
                     WHERE
                     recipient  = '" . $_SESSION["idUser"] . "'
-                    ORDER BY dateReceipt DESC;";
+                    ORDER BY dateReceipt DESC;
+                   ";
         // Exécution de la requete
         return $db->query($requete);
     }
@@ -34,13 +37,15 @@ function addMessageBdd($postArray)
     //Récupération des données passées en post
     $subject = $postArray ["subject"];
     $body = $postArray ["body"];
-    $recipient = $postArray ["recipient"];
+
+    $idRecipient= getIdUser($postArray ["recipient"]);
+
     try{
         $req = $db->prepare('INSERT INTO message (sender, recipient, subject, body)
                                       VALUES (:sender, :recipient, :subject, :body)');
         $req->execute(array(
             'sender' => $_SESSION['idUser'],
-            'recipient' => 1,
+            'recipient' => $idRecipient,
             'subject' => $subject,
             'body' => $body,
         ));

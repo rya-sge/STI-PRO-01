@@ -35,8 +35,9 @@ ob_start();
                            value="<?= @$_POST['subject'] ?>"/>
                     </br>
                     <label>Corps</label>
-                    <input class="form-control" type="text" placeholder="Entrez le texte de l'email" name="body"
-                           value="<?= @$_POST['body'] ?>"/>
+                    <textarea class="form-control"  rows="3"
+                              placeholder="Entrez le texte de l'email" name="body"
+                              value="<?= @$_POST['body'] ?>"> </textarea>
                     </br>
                     <!--Source : https://html5-tutorial.net/forms/checkboxes/ -->
                     </br>
