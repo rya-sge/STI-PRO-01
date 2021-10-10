@@ -22,7 +22,8 @@ ob_start();
                 <br />
                 <div class="btn-group row" >
                     <div class="col-lg-offset-9 col-lg-6 col-md-offset-9 col-md-6 ">
-                        <a href='index.php?action=vue_accueil'><button type='button' class='btn btn-primary btn-lg'  >Retourner à la page d'accueil</button></a><br /><br />
+                        <a href='index.php?action=vue_accueil'><button type='button' class='btn btn-primary btn-lg'
+                            >Retourner à la page d'accueil</button></a><br /><br />
                     </div>
                 </div>
             </div>

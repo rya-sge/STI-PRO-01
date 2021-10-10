@@ -14,10 +14,9 @@ ob_start();
 <h2>Votre message</h2>
 
 <article>
-    <?php require 'vue/mailBox/vue_message_header_2.php';?>
+    <?php require 'vue/mailBox/vue_message_header.php';?>
     <h3>Corps du message</h3>
-    <p>
-        <?php echo $resultat['body']; ?>
+    <p><?php echo $resultat['body']; ?>
     </p>
 </article>
 <hr/>

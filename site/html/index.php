@@ -49,150 +49,29 @@ try
         case 'vue_message_add':
             addMessage();
             break;
-            
-		////Contribution
-		case 'vue_contribution_gestion':
-            isConnected();
-			contributionGestion();
-			break;
 
-        //Role
+        case 'vue_message_respond':
+            respondMessage();
+            break;
+
+        //Administration
         case 'vue_role_gestion':
             isConnected();
             testR1Out();
             roleGestion();
             break;
-        case 'vue_moderateur_ajout':
+
+        case 'vue_user_delete':
             isConnected();
             testR1Out();
-            ajouterModerateur();
-            break;
-        case 'vue_moderateur_suppression':
-            isConnected();
-            testR1Out();
-            supprimerModerateur();
-            break;
-
-            //Validation
-        case 'vue_validation_gestion':
-            isConnected();
-            testR2Out();
-            validationGestion();
-            break;
-        case 'vue_artefact_validation_supp':
-            isConnected();
-            testR2Out();
-            supprimerValidationArtefact();
-            break;
-        case 'vue_algorithme_validation_supp':
-            isConnected();
-            testR2Out();
-            supprimerValidationAlgorithme();
-            break;
-
-            //Algorithme
-        case 'vue_algorithme_validation':
-            isConnected();
-            testR2Out();
-            validationAlgorithme();
-            break;
-        case 'vue_algorithme_add':
-            isConnected();
-            ajouterAlgorithme();
-            break;
-        case 'vue_algorithme_gestion':
-            isConnected();
-            algorithmeGestion();
-            break;
-        case 'vue_algorithme':
-            isConnected();
-            afficherAlgorithme_Artefact();
-            break;
-        case 'vue_algorithme_suppression':
-            isConnected();
-            supprimerAlgorithme();
-            break;
-        case 'vue_mes_algorithme_suppression':
-            isConnected();
-            supprimerMesAlgorithme();
-            break;
-        case 'vue_algorithme_recherche':
-            isConnected();
-            chercherAlgorithme();
-            break;
-        //Artefact
-        case 'vue_artefact_validation':
-            isConnected();
-            validationArtefact();
-            break;
-        case 'vue_artefact_suppression':
-            isConnected();
-            supprimerArtefact();
-            break;
-        case 'vue_mes_artefact_suppression':
-            isConnected();
-            supprimerMesArtefact();
-            break;
-
-        case 'vue_pseudo_code_liste_note':
-            isConnected();
-            noterArtefact(0);
-            break;
-        case 'vue_code_source_liste_note':
-            isConnected();
-            noterArtefact(1);
-            break;
-        case 'vue_artefact_algorithme_note':
-            isConnected();
-            noterArtefact(2);
-            break;
-
-        //Code source
-        case 'vue_code_source_gestion':
-            isConnected();
-            codeSourceGestion();
-            break;
-        case 'vue_code_source_ajout':
-            isConnected();
-            ajouterCodeSource();
-            break;
-        case 'vue_mes_code_source_modification':
-            isConnected();
-            modifierMesCodeSource();
-            break;
-        case 'vue_code_source_telechargement_archive':
-            isConnected();
-            telechargerCodeSource('archive');
-            break;
-        case 'vue_code_source_telechargement_doc':
-            isConnected();
-            telechargerCodeSource("documentation");
-            break;
-        case 'vue_code_source_attacher_pseudo_code':
-            isConnected();
-            attacherPseudoCode();
-            break;
-
-        //pseudo-code
-        case 'vue_pseudo_code_gestion':
-            isConnected();
-            pseudoCodeGestion();
-            break;
-        case 'vue_pseudo_code_ajout':
-            isConnected();
-            ajouterPseudoCode();
-            break;
-        case 'vue_pseudo_code_telechargement':
-            isConnected();
-            telechargerPseudoCode();
-            break;
-
-        case 'vue_pseudo_code_texte':
-            isConnected();
-            afficherTexte();
+            deleteUserForAdmin();
             break;
 
         //profil
+        case 'vue_role':
+            isConnected();
+            updUserRole();
+            break;
 		case 'vue_profil':
             isConnected();
             profil();

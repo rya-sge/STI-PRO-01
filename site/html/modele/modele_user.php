@@ -127,7 +127,6 @@ function checkLogin($postArray)
 {
     $username = $postArray ["fLogin"];
     $passwdPost = $postArray["fPasswd"];
-    erreurUrl($username);
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();
     if (empty($resultats['name'])) {
@@ -169,8 +168,6 @@ function ajoutUser($postArray)
     champVide($email, "Email");
     champVide($passwdPost, "Mot de passe");
     champVide($passwdConf, "Confirmer votre mot de passe");
-    erreurXss($login);
-    erreurXss($email);
     verifEmail($email);
     longChampValid($email, "Adresse email", 254);
     longChampValid($login, "Nom d'utilisateur/login", 30);
@@ -281,42 +278,6 @@ function changeLogin($postArray)
 
 }
 
-
-/*
- * @brief  Permet de modifier l'email d'un utilisateur
- * @details Ne fait rien si le nouvel email est identique à l'actuel
- */
-function changeEmail()
-{
-    $db = getBD();
-
-    $NEmail = $_POST['fNEmail'];
-    champVide($NEmail, "Adresse email");
-    erreurXss($NEmail);
-    verifEmail($NEmail);
-    longChampValid($NEmail, "Adresse email", 45);
-    if ($NEmail != $_SESSION['email']) {
-        // test si l'email existe déjà pour éviter qu'il y ait deux utilisateurs ayant la même adresse email
-        $reqSelect = "SELECT * 
-                     FROM user
-                     WHERE email='" . $NEmail . "' ;";
-        $res = $db->query($reqSelect);
-        $ligne = $res->fetch(); // récupère l'utilisateur sélectionné s'il y en a un
-        // Test le résultat
-        if (empty($ligne['id'])) {
-            $req = $db->prepare("UPDATE user SET email=:email
-                WHERE id='" . $_SESSION['idUser'] . "';");
-            $req->execute(array(
-                'email' => $NEmail,
-            ));
-            $_SESSION['modif'] = "Votre adresse email a été modifié";
-        } else {
-            throw new Exception("Cet email est déjà utilisé");
-        }
-    } else {
-        throw new Exception("La nouvelle adresse email est identique à l'ancienne");
-    }
-}
 
 // -----------------------------
 /*

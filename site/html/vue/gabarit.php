@@ -68,19 +68,6 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
             margin: 0px;
             line-height: 35px;
             cursor: pointer;
-            /*
-              .collapsed{
-                 .arrow:before{
-                           font-family: FontAwesome;
-                           content: "\f053";
-                           display: inline-block;
-                           padding-left:10px;
-                           padding-right: 10px;
-                           vertical-align: middle;
-                           float:right;
-                      }
-               }
-          */
         }
 
         .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -205,8 +192,6 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
-    <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!--<script src="https://use.fontawesome.com/11e927f157.js"></script>-->
 </head>
 <body>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -215,9 +200,8 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
 <div style="float:right">
     <!--Source : I-151 donné par BENZONANA Pascal -->
     <?php if (!isset($_SESSION['login'])) {
-        echo '<a href="index.php?action=vue_login">Login </a>';
-
-    } else {;
+        echo "<a href='index.php?action=vue_login'>Login</a>";
+    } else {
         echo "<a href='index.php?action=vue_logout'><button type='button' class='btn btn-primary btn-sm'  >Déconnexion</button></a>";
         echo "<a href='index.php?action=vue_profil'><button type='button' class='btn btn-primary btn-sm'  >Profil</button></a>";
     }
@@ -225,7 +209,8 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
 
 </div>
 <div class="nav-side-menu">
-    <div ><img style="margin-top: 15px; margin-bottom: 25px" class="center-block" src="contenu/icon.png" width="150px"/>
+    <div >
+        <img style="margin-top: 15px; margin-bottom: 25px" class="center-block" src="contenu/icon.png" width="150px"/>
     </div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">
@@ -241,31 +226,15 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
                     <i class="fa fa-upload fa-lg"></i>InBox</a>
             </li>
             <?php
-            if (testR2() == true) { ?>
+            if (testR1() == true) { ?>
                 <li data-toggle="collapse" data-target="#administration" class="collapsed">
-                    <a href="#"><i class="fa fa-dashboard  fa-lg"></i>Administration <span class="arrow"></span></a>
+                    <a href="index.php?action=vue_role_gestion"><i class="fa fa-dashboard  fa-lg"></i>Administration
+                        </a>
                 </li>
-                <ul class="sub-menu collapse" id="administration">
-
-                    <?php if (testR2()) { ?>
-                        <li class="active"><a href="index.php?action=vue_validation_gestion">Validation</a></li>
-                    <?php } ?>
-                    <?php if (testR1()) { ?>
-                        <li class="active"><a href="index.php?action=vue_role_gestion">Utilisateur</a></li>
-                    <?php } ?>
-                </ul>
             <?php } ?>
             <li>
                 <a class="alone" href="index.php?action=vue_message_add">
                     <i class="fa fa-globe fa-lg"></i>Ecrire un message</a>
-            </li>
-            <li>
-                <a class="alone" href="index.php?action=vue_code_source_gestion">
-                    <i class="fa fa-file-code-o fa-lg"></i>Code Source</a>
-            </li>
-            <li>
-                <a class="alone" href="index.php?action=vue_pseudo_code_gestion">
-                    <i class="fa fa-pencil fa-lg"></i>Pseudo Code</a>
             </li>
         </ul>
     </div>
@@ -278,10 +247,6 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
             <!--Partie réservé au contenu (contient les vues)-->
             <div class="span12" id="divMain">
                 <?php
-                //Les lignes font réflérences aux lignes de matériel et de planning
-                //ligne =0 il n'y a pas d'erreur
-                //Ligne=1 : il y a une erreur qui doit être affichée
-                //Ligne=3 : l'erreur a été affichée
                 if (@$_SESSION['erreur'] != "") {
                     require "vue/erreur/vue_erreur_visiteur.php";
                     $_SESSION['erreur'] = "";

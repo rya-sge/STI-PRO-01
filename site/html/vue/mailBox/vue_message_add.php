@@ -27,16 +27,17 @@ ob_start();
             <form class='form' method='POST' action="index.php?action=vue_message_add">
                 <div class="form-group">
                     <label>Destinataire*</label>
-                    <input class="form-control" type="text" placeholder="Entrez le nom du destinataire'" name="recipient"
-                           value="<?= @$_POST['tag'] ?>" required/>
+                    <input class="form-control" type="text" placeholder="Entrez le nom du destinataire" name="recipient"
+                           value="<?= @$_POST['recipient'] ?>" required/>
                     </br>
                     <label>Sujet</label>
                     <input class="form-control" type="text" placeholder="Entrez le sujets" name="subject"
                            value="<?= @$_POST['subject'] ?>"/>
                     </br>
                     <label>Corps</label>
-                    <input class="form-control" type="text" placeholder="Entrez le texte de l'email" name="body"
-                           value="<?= @$_POST['body'] ?>"/>
+                    <textarea class="form-control"  rows="3"
+                              placeholder="Entrez le texte de l'email" name="body"
+                              value="<?= @$_POST['body'] ?>"> </textarea>
                     </br>
                     <!--Source : https://html5-tutorial.net/forms/checkboxes/ -->
                     </br>
