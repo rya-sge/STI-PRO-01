@@ -228,4 +228,18 @@ function deleteUser()
     }
 }
 
-?>
+// -----------------------------
+/*
+ * @brief Récupérer les infos d'un compte
+ */
+function userProfile()
+{
+    if (isset($_GET['qIdUser'])) {
+        $infoUser = infoUser($_GET['qIdUser']);//Récuper les données d'un utilisateur via le modèle
+
+        //Affiche le profil avec les données de l'utilisateur
+        require ROOT_PROFIL . "vue_profil_admin.php";
+    } else {
+        require "vue/vue_visiteur.php";
+    }
+}

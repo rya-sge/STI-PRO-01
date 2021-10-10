@@ -213,6 +213,9 @@ try
             isConnected();
             deleteUser();
             break;
+        case 'vue_profil_admin':
+            userProfile();
+            break;
      default :
         throw new Exception("L'action demandée est inconnue !");
     }   

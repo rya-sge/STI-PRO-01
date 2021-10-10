@@ -330,3 +330,18 @@ function delUser($idUser)
                 WHERE id ="' . $idUser . '";';
     $db->exec($requete);
 }
+
+/*
+ * @brief  Permet de récupérer les infos d'un utilisateur par son id
+ * @param L'id de l'utilisateur à récupérer
+ */
+function infoUser($idUser)
+{
+    $db = getBD();
+
+    $request = "SELECT * FROM USER
+                WHERE id = $idUser";
+    $infoUser = $db->query($request)->fetch();
+
+    return $infoUser;//Retourne le tableau contenant les informations de l'utilisateur
+}

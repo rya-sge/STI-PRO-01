@@ -1,8 +1,8 @@
 <?php
   $titre ='TheDeveloperSpellbook - Profil utilisateur';
 
-// vue_profil.php
-// Date de création : 24/12/2020
+// vue_profil_admin.php
+// Date de création : 07/10/2021
 // Fonction : vue pour afficher le  profil de l'utilisateur, qui contient ses informations personnelles.
 // __________________________________________
 
@@ -22,7 +22,7 @@ ob_start();
 	</p>
 <div id="profil">
 	<h1>PROFIL</h1>
-	<p>Bonjour <?php echo $_SESSION['login']; ?> ! Vous trouvrez ici vos informations de compte. </p>
+	<p>Modification du profil de l'utilisateur <?php  ?>. </p>
 	<table class="table table-bordered" >
 		<thead>
 			<tr>
@@ -37,7 +37,7 @@ ob_start();
 		<tbody>
 			<tr>
 				<td>Nom d'utilisateur</td>
-				<td><?php echo $_SESSION['login']; ?></td>
+				<td><?php print_r($infoUser); ?></td>
 			</tr>
 			<tr>
 			<td>Mot de passe</td>
