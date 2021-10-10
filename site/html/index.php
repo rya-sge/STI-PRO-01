@@ -88,6 +88,9 @@ try
             isConnected();
             modifPasswd();
             break;
+        case 'vue_profil_passwd_modif_admin':
+            modifPasswdAdmin();
+            break;
 		case 'vue_profil_del':
             isConnected();
             deleteUser();

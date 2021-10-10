@@ -22,7 +22,7 @@ ob_start();
 	</p>
 <div id="profil">
 	<h1>PROFIL</h1>
-	<p>Modification du profil de l'utilisateur <?php  ?>. </p>
+	<p>Modification du profil de l'utilisateur <?php echo $infoUser['name'] ?>. </p>
 	<table class="table table-bordered" >
 		<thead>
 			<tr>
@@ -37,21 +37,23 @@ ob_start();
 		<tbody>
 			<tr>
 				<td>Nom d'utilisateur</td>
-				<td><?php print_r($infoUser); ?></td>
+				<td><?php echo $infoUser['name'];?></td>
 			</tr>
 			<tr>
 			<td>Mot de passe</td>
                 <td></td>
-			<td><a href="index.php?action=vue_profil_passwd_modif"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+			<td><a href="index.php?action=vue_profil_passwd_modif_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a></td>
 			</tr>
             <tr>
                 <td>Rôle</td>
-                <td><?php echo $_SESSION['idRole']; ?></td>
+                <td><?php echo $infoUser['idRole']; ?></td>
+                <td><a href="index.php?action=vue_profil_role_modif_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a></td>
             </tr>
 			<tr>
 				<td>Etat du compte</td>
-				<td>Actif</td>
-				<td><a href="index.php?action=vue_profil_del"><button class="btn btn-danger" >Supprimer le compte</button></a></td>
+				<td><?php echo $infoUser['isValid']?></td>
+                <td><a href="index.php?action=vue_profil_valid_modif_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a>
+				<a href="index.php?action=vue_profil_del_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-danger" >Supprimer le compte</button></a></td>
 			</tr>
 		<tbody>
 	</table>

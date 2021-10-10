@@ -306,3 +306,28 @@ function infoUser($idUser)
 
     return $infoUser;//Retourne le tableau contenant les informations de l'utilisateur
 }
+
+// -----------------------------
+/*
+ * @brief  Permet de changer le mot de passe d'un utilisateur
+ * @param les informations passées en POST
+ */
+function changePasswdAdmin($postArray)
+{
+    $NPasswdPost = $postArray['fNPasswdPost'];
+    $NPasswdConf = $postArray['fNPasswdConf'];
+    $db = getBD();
+
+    erreurPasswd($NPasswdConf, $NPasswdPost); //Vérifie que les mots de passes correspondent et soient assez long
+
+    $passwdHash = password_hash($NPasswdPost, PASSWORD_DEFAULT); //Hachage du mot de passe
+    $passwd = $passwdHash;
+    //Mise à jour des informations
+    $req = $db->prepare("UPDATE user SET password=:password
+        WHERE id='" . $postArray['qIdUser'] . "';");
+    $req->execute(array(
+        'password' => $passwd,
+    ));
+    $_SESSION['modif'] = "Votre mot de passe a été modifié";
+
+}
