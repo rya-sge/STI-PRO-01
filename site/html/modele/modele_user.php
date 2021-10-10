@@ -314,6 +314,8 @@ function infoUser($idUser)
  */
 function changePasswdAdmin($postArray)
 {
+    // Pour tester
+    //file_put_contents('test.txt', print_r($postArray, true));
     $NPasswdPost = $postArray['fNPasswdPost'];
     $NPasswdConf = $postArray['fNPasswdConf'];
     $db = getBD();
