@@ -3,8 +3,9 @@
     {
         $db = getBD();
         // Création de la string pour la requête
-        $requete = "SELECT * from message
-                    LEFT JOIN user 
+        $requete = "SELECT message.id, dateReceipt, recipient, sender, body, subject, name  
+                    from message
+                    INNER JOIN user 
                     ON sender = user.id
                     WHERE
                     recipient  = '" . $_SESSION["idUser"] . "'
@@ -18,10 +19,12 @@
         {
             $db = getBD();
             // Création de la string pour la requête
-            $requete = "SELECT * from message
+            $requete = "SELECT message.id, dateReceipt, recipient, sender, body, subject, name  from message
+                        LEFT JOIN user 
+                            ON sender = user.id
                         WHERE
                         recipient  = '" . $_SESSION["idUser"] . "'
-                        AND id = $idMessage;";
+                        AND message.id = $idMessage;";
             // Exécution de la requete
             return $db->query($requete)->fetch();
         }

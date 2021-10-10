@@ -211,7 +211,7 @@ function updateProfil()
  */
 function deleteUser()
 {
-    //Variable post existe si l'utilisateur a cliqué sur le bouton suppriner de son profil
+    //Variable post existe si l'utilisateur a cliqué sur le bouton supprimer de son profil
     if (isset($_SESSION['idUser']) AND isset($_POST['delUser'])) {
         try {
             delUser($_SESSION['idUser']);//suppression de l'utilisateur
@@ -226,5 +226,6 @@ function deleteUser()
         require ROOT_PROFIL . "vue_profil_del.php";
     }
 }
+
 
 ?>

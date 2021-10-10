@@ -27,8 +27,8 @@ ob_start();
             <form class='form' method='POST' action="index.php?action=vue_message_add">
                 <div class="form-group">
                     <label>Destinataire*</label>
-                    <input class="form-control" type="text" placeholder="Entrez le nom du destinataire'" name="recipient"
-                           value="<?= @$_POST['tag'] ?>" required/>
+                    <input class="form-control" type="text" placeholder="Entrez le nom du destinataire" name="recipient"
+                           value="<?= @$_POST['recipient'] ?>" required/>
                     </br>
                     <label>Sujet</label>
                     <input class="form-control" type="text" placeholder="Entrez le sujets" name="subject"

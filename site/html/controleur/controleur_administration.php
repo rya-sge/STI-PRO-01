@@ -24,4 +24,18 @@ function updUserRole(){
     @header("location: index.php?action=vue_role_gestion");
     exit();
 }
+
+function deleteUserForAdmin(){
+    if (isset($_GET['qIdUser'])) {
+        try {
+            delUser($_GET['qIdUser']);//suppression de l'utilisateur
+        } catch (Exception $e) {
+            trigger_error($e->getMessage(), E_USER_ERROR);
+            $_SESSION['erreur'] = $e->getMessage();
+        }
+    }{
+        $_SESSION['modif'] = "Error : user has not been deleted";
+    }
+    @header("location: index.php?action=vue_role_gestion");
+}
 ?>

@@ -68,6 +68,19 @@ function addMessage()
     require ROOT_MAILBOX. "/vue_message_add.php";
 }
 
+function respondMessage(){
+    //Variable post existe si l'utilisateur a cliqué sur le bouton répondre
+  if (isset($_GET['qIdSender']) && isset($_GET['qIdMessage']))
+  {
+
+      $resultat = getMessageContent($_GET['qIdMessage']);
+      require ROOT_MAILBOX. "/vue_message.php";
+      $_POST['recipient'] = $_GET['qIdSender'];
+      require ROOT_MAILBOX. "/vue_message_add.php";
+
+
+  }
+}
 // ------------ Autres ---------------------
 function erreur($msg)
 {

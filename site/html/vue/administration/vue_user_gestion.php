@@ -42,8 +42,8 @@ ob_start();
                                 </button>
                             </a>
                             <a href="index.php?action=vue_profil_admin&qIdUser=<?= $resultat['id']; ?>">
-                                <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
-                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
+                                <button class="btn btn-primary btn-xs" data-title="update" data-toggle="modal"
+                                        data-target="#delete"><span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </a>
                         </td>

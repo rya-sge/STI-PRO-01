@@ -49,28 +49,22 @@ try
         case 'vue_message_add':
             addMessage();
             break;
-            
-		////Contribution
-		case 'vue_contribution_gestion':
-            isConnected();
-			contributionGestion();
-			break;
 
-        //Role
+        case 'vue_message_respond':
+            respondMessage();
+            break;
+
+        //Administration
         case 'vue_role_gestion':
             isConnected();
             testR1Out();
             roleGestion();
             break;
-        case 'vue_moderateur_ajout':
+
+        case 'vue_user_delete':
             isConnected();
             testR1Out();
-            ajouterModerateur();
-            break;
-        case 'vue_moderateur_suppression':
-            isConnected();
-            testR1Out();
-            supprimerModerateur();
+            deleteUserForAdmin();
             break;
 
         //profil
