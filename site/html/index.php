@@ -89,6 +89,7 @@ try
             modifPasswd();
             break;
         case 'vue_profil_passwd_modif_admin':
+            isConnected();
             modifPasswdAdmin();
             break;
 		case 'vue_profil_del':
@@ -96,8 +97,14 @@ try
             deleteUser();
             break;
         case 'vue_profil_admin':
+            isConnected();
             userProfile();
             break;
+        case 'vue_valid':
+            isConnected();
+            updUserValid();
+            break;
+
      default :
         throw new Exception("L'action demandée est inconnue !");
     }   

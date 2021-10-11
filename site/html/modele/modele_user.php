@@ -333,3 +333,24 @@ function changePasswdAdmin($postArray)
     $_SESSION['modif'] = "Votre mot de passe a été modifié";
 
 }
+
+/*
+ * @brief Met à jour l'activité d'un compte utilisateur spécifié par son ID
+ * @param idUtilisateur de l'utilisateur
+ * @param idValid nouveau status
+ */
+function updateValidById($idUtilisateur, $isValid)
+{
+    $db = getBD();
+    // Création de la string pour la requête
+    $requete = $db->prepare("UPDATE user
+                                        SET isValid = '" . $isValid . "'
+                                       WHERE id = '" . $idUtilisateur . "'");
+    // Exécution de la requete
+    $requete->execute();
+    if ($requete->rowCount()) {
+        $_SESSION['modif'] = "L'activité de l'utilisateur a été modifiée";
+    } else {
+        $_SESSION['modif'] = "Erreur : l'activité n'a pas pu être modifiée";
+    }
+}

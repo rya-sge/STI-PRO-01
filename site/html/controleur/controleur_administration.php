@@ -38,4 +38,14 @@ function deleteUserForAdmin(){
     }
     @header("location: index.php?action=vue_role_gestion");
 }
-?>
+
+function updUserValid(){
+    if (isset($_GET['qIdUser']) && isset($_POST['valid'])) {
+        try {
+            updateValidById($_GET['qIdUser'], $_POST['valid']);
+        } catch (Exception $e) {
+            $_SESSION['erreur'] = $e->getMessage();
+        }
+    }
+    @header("location: index.php?action=vue_profil_admin&qIdUser=" . $_GET['qIdUser']);
+}

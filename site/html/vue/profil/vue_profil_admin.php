@@ -47,13 +47,20 @@ ob_start();
             <tr>
                 <td>Rôle</td>
                 <td><?php echo $infoUser['idRole']; ?></td>
-                <td><a href="index.php?action=vue_profil_role_modif_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                <td></td>
             </tr>
 			<tr>
 				<td>Etat du compte</td>
-				<td><?php echo $infoUser['isValid']?></td>
-                <td><a href="index.php?action=vue_profil_valid_modif_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a>
-				<a href="index.php?action=vue_profil_del_admin&qIdUser=<?php echo $infoUser['id'] ?>"><button class="btn btn-danger" >Supprimer le compte</button></a></td>
+				<td><?php echo $infoUser['isValid'] == 1 ? "Actif" : "Inactif" ?></td>
+                <td>
+                    <form class="form" method="POST" action="index.php?action=vue_valid&qIdUser=<?php echo $infoUser['id'] ?>" enctype="multipart/form-data">
+                        <select name="valid">
+                            <option value=1>Actif</option>
+                            <option value=0>Inactif</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" name="addRole">Envoyer</button>
+                    </form>
+                </td>
 			</tr>
 		<tbody>
 	</table>
