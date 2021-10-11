@@ -52,6 +52,18 @@ function readMessage(){
 
 }
 
+function deleteMessage(){
+
+
+    //Variable post existe si l'utilisateur a cliqué sur le bouton supprimer
+    if (isset($_GET['qIdMessage'])) {
+        delMessage($_GET['qIdMessage']);
+        @header("location: index.php?action=vue_inbox");
+    } else {
+        throw new Exception("Aucun message n'est sélectionné");
+    }
+}
+
 function addMessage()
 {
     //Variable post existe si l'utilisateur a cliqué sur le bouton Ajouter

@@ -187,12 +187,14 @@ function ajoutUser($postArray)
     // Test le résultat
     if (empty($ligne['name'])) {
         // ajout de l'utilisateur
-        $req = $db->prepare('INSERT INTO user (name, email, password)
-                    VALUES (:name, :email, :password)');
+        $req = $db->prepare('INSERT INTO user (name, email, password, isValid, idRole )
+                    VALUES (:name, :email, :password, :isValid, :idRole)');
         $req->execute(array(
             'name' => $login,
             'email' => $email,
             'password' => $passwd,
+            'isValid' => 1,
+            'idRole' => 2
         ));
     } else {
         throw new Exception("L'utilisateur ne peut pas être ajouté car il existe déjà.");

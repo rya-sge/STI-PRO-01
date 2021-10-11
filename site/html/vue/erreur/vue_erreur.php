@@ -1,5 +1,5 @@
 <?php
-  $titre ='TheDeveloperSpellbook - erreur';
+  $titre ='HashMail - erreur';
 
 // vue_erreur.php
 // Date de création : 24/12/2020
@@ -23,6 +23,5 @@ ob_start();
   $contenu = ob_get_clean();
   require 'vue/gabarit.php';
 ?>  
-      
       
       

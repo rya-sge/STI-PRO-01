@@ -210,7 +210,7 @@ Pour ce gabarit, la mise en page, ainsi que le css (Hormis le menu vertical) est
 </div>
 <div class="nav-side-menu">
     <div >
-        <img style="margin-top: 15px; margin-bottom: 25px" class="center-block" src="contenu/icon.png" width="150px"/>
+        <img style="margin-top: 15px; margin-bottom: 25px" class="center-block" src="contenu/icon.jpg" width="150px"/>
     </div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">

@@ -13,9 +13,8 @@ CREATE TABLE user (
 	FOREIGN KEY(idRole) REFERENCES Role(id)
 );
 
-CREATE TABLE uessage (
+CREATE TABLE message (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	name TEXT NOT NULL,
 	dateReceipt TEXT,
 	sender INTEGER,
 	recipient INTEGER,

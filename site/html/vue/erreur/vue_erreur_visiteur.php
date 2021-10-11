@@ -1,5 +1,5 @@
 <?php
-  $titre ='TheDeveloperSpellbook - erreur visiteur';
+  $titre ='HashMail - erreur visiteur';
 
 // vue_erreur_visiteur.php
 // Date de création : 24/12/2020
@@ -23,6 +23,5 @@ ob_start();
   //$contenu = ob_get_clean();
   //require 'gabarit_erreur_visiteur.php';
 ?>  
-      
       
       

@@ -1,5 +1,5 @@
 <?php
-$titre = 'SpellBook - Ajouter un boiteMail';
+$titre = 'HashMail - Ajouter un boiteMail';
 
 // vue_message_add.php
 // Date de création : 10/01/2021

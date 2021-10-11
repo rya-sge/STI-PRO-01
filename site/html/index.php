@@ -54,6 +54,11 @@ try
             respondMessage();
             break;
 
+        case 'vue_inbox_delete':
+            deleteMessage();
+            break;
+
+
         //Administration
         case 'vue_role_gestion':
             isConnected();
