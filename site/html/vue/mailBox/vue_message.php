@@ -1,5 +1,5 @@
 <?php
-  $titre ='MesActivites-Lieu';
+  $titre ='HashMail-message';
 
 // vue_lieu.php
 // Date de création : 16/05/2017

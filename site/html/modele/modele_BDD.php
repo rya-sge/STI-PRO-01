@@ -7,11 +7,10 @@
 
 function getBD()
 {
+    // connexion au serveur MySQL et à la BD
+    $db = new PDO('mysql:host=localhost; dbname=sti','root','');
 
-  // connexion au serveur MySQL et à la BD
-  $db = new PDO("sqlite:".__DIR__."/../../databases/database.sqlite");
-
-  // permet d'avoir plus de détails sur les erreurs retournées
-   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  return  $db;
+    // permet d'avoir plus de détails sur les erreurs retournées
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return  $db;
 }

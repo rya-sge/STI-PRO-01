@@ -1,5 +1,5 @@
 <?php
-$titre = 'TheDeveloperSpellbook - Liste des utilisateurs';
+$titre = 'HashMail - Liste des utilisateurs';
 
 // vue_user_gestion.php
 // Date de création : 09/01/2021
@@ -26,6 +26,7 @@ ob_start();
                     <th>Id</th>
                     <th>Nom d'utilisateur</th>
                     <th>Action</th>
+                    <th>User</th>
                 </tr>
                 <?php
                 //Affiche la liste des comptes avec leur catégorie

@@ -1,5 +1,5 @@
 <?php
-$titre ='TheDeveloperSpellbook - Ajouter un administrateur';
+$titre ='HashMail - Ajouter un administrateur';
 
 // vue_role_add.php
 // Date de création : 10/01/2021

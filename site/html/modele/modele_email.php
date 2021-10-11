@@ -28,7 +28,29 @@
             // Exécution de la requete
             return $db->query($requete)->fetch();
         }
+
+
+
+
 /*
+ * @brief supprimer un algorithme
+ * @param L'id de l'algorithme à supprimer
+ */
+function delMessage($idMessage)
+{
+    $db = getBD();
+    $requete = 'DELETE 
+                FROM message
+                WHERE id ="' . $idMessage . '" ;';
+    $requete = $db->exec($requete);
+    if ($requete) {
+        $_SESSION['modif'] = "Le message a été supprimé";
+    } else {
+        $_SESSION['modif'] = "Erreur : Le message n'a pas pu être  supprimé";
+    }
+}
+
+        /*
 * @brief Ajouter un boiteMail
 * @param Donnée POST du formulaire
 * @details
@@ -44,10 +66,22 @@ function addMessageBdd($postArray)
     $idRecipient= getIdUser($postArray ["recipient"]);
 
     try{
-        $req = $db->prepare('INSERT INTO message (sender, recipient, subject, body)
-                                      VALUES (:sender, :recipient, :subject, :body)');
+
+        $reqSelect = "SELECT * 
+                 FROM user
+                 WHERE id='" . $idRecipient . "';";
+        $res = $db->query($reqSelect);
+        $ligne = $res->fetch(); // récupère la valeur du login sélectionné s'il y en a un
+        // Vérifier que l'utilisateur existe
+        if (empty($ligne['id'])) {
+            $_SESSION['modif'] = "L'utilisateur n'existe pas";
+            throw new Exception("Erreur : le message n'a pas pu être envoyé");
+        }
+        $req = $db->prepare('INSERT INTO message (sender, recipient, subject, body, dateReceipt)
+                                      VALUES (:sender, :recipient, :subject, :body, :dateReceipt)');
         $req->execute(array(
             'sender' => $_SESSION['idUser'],
+            'dateReceipt' => date('Y-m-d H:i:s'),
             'recipient' => $idRecipient,
             'subject' => $subject,
             'body' => $body,

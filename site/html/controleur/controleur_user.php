@@ -243,24 +243,3 @@ function userProfile()
     }
 }
 
-/*
- * @brief mettre à jour/changer un mot de passe
- */
-function modifPasswdAdmin()
-{
-    if (isset($_POST['fNPasswdPost'])) {
-        try {
-            changePasswdAdmin($_POST);
-            $_SESSION['erreur2'] = false;
-            @header("location: index.php?action=vue_profil_admin");
-            exit;
-        } catch (Exception $e) {
-            $_SESSION['erreur'] = $e->getMessage();
-            $_SESSION['erreur2'] = true;
-            require ROOT_PROFIL . "vue_profil_passwd_modif_admin.php";
-        }
-
-    } else {
-        require ROOT_PROFIL . "vue_profil_passwd_modif_admin.php";
-    }
-}

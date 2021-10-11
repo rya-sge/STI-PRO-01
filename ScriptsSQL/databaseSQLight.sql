@@ -15,7 +15,6 @@ CREATE TABLE user (
 
 CREATE TABLE message (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	name TEXT NOT NULL,
 	dateReceipt TEXT,
 	sender INTEGER,
 	recipient INTEGER,

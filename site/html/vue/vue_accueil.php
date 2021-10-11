@@ -1,5 +1,5 @@
 <?php
-$titre = 'TheDeveloperSpellbook - Accueil';
+$titre = 'HashMail - Accueil';
 
 // vue_accueil.php
 // Date de création : 24/12/2020
