@@ -17,3 +17,8 @@ Le repertoire "html" contient :
 
 Le mot de passe pour phpliteadmin est "admin".
 
+
+Source :
+Une partie du design et de la structure du code provient du travail de fin de CFC de Ryan Sauge dont le code est disponible publiquement :
+https://github.com/rya-sge/travail-cfc
+
