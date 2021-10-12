@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - Profil utilisateur';
+  $titre ='HashMail - Profil utilisateur';
 
 // vue_profil.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour afficher le  profil de l'utilisateur, qui contient ses informations personnelles.
 // __________________________________________
 

@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - suppression de compte';
+  $titre ='HashMail - suppression de compte';
 
 // vue_validation_utilisateur_del.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour confirmer la suppression de compte
 // __________________________________________
 
@@ -23,6 +23,5 @@ ob_start();
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       

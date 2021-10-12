@@ -1,7 +1,7 @@
 <?php
 // ------------------------------------
 // getBD()
-// Date de création : 02/03/2017
+// Date de création : 13.10.2021
 // Fonction : connexion avec le serveur : instancie et renvoie l'objet PDO
 // Sortie : $db
 

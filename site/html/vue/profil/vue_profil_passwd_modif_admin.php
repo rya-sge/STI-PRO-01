@@ -1,5 +1,5 @@
 <?php
-$titre ='TheDeveloperSpellbook - passwd modif';
+$titre ='HashMail - passwd modif';
 
 // vue_profil_passwd_modif_admin.php
 // Date de création : 10/10/2021

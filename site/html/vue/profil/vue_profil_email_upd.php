@@ -1,5 +1,5 @@
 <?php
-  $titre ='TheDeveloperSpellbook - email update';
+  $titre ='HashMail - email update';
 
 // vue_profil_email_upd.php
 // Date de création : 24/12/2020
@@ -31,6 +31,5 @@ Motidifer votre adresse email
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       

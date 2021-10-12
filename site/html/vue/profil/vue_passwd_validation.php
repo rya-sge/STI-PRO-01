@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - validation';
+  $titre ='HashMail - validation';
 
 // vue_login.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour l'affichage la connexion utilisateur
 // __________________________________________
 
@@ -23,6 +23,5 @@ ob_start();
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       
