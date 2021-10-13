@@ -155,14 +155,10 @@ function checkLogin($postArray)
 function ajoutUser($postArray)
 {
     $db = getBD();
-    //https://www.grafikart.fr/forum/topics/14831
     $email = $_POST['fEmail'];
     $login = $postArray ["fLogin"];
     $passwdPost = $postArray["fPasswd"];
     $passwdConf = $postArray['fPasswdConf'];
-    $erreur = false;
-    //Affiche un message d'erreur si la fonction htmlspecialchars a effectué des remplacements de caractères pour le mot de passe (pour éviter faille xss)
-
     //Test des formulaires
     champVide($login, "Login");
     champVide($email, "Email");
@@ -219,7 +215,7 @@ function changePasswd($postArray)
     $passwd = $resultats->fetch();
 
     if (!empty($resultats)) {
-        //erreurPasswd($NPasswdConf,$NPasswdPost); //Vérifie que les mots de passes correspondent et soient assez long
+       //Vérifie que les mots de passes correspondent
         erreurPasswd($NPasswdConf, $NPasswdPost);
         $hash = $passwd['password'];
         if (password_verify($passwdOld, $hash)) //Vérification du mot de passe
