@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - passwd recup';
+  $titre ='HashMail - passwd recup';
 
 // vue_passwd_recup.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour modifier son nom d'utilisateur
 // __________________________________________
 
@@ -31,6 +31,5 @@ Changer votre notre d'utilisateur
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       

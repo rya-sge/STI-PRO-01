@@ -3,7 +3,7 @@
 // ------------ Users --------------------- 
 // -----------------------------
 //Controleur de la partie utilisateurs
-//Date de création : 24.12.2020
+//Date de création :  13.10.2021
 
 
 /*
@@ -172,37 +172,6 @@ function modifPasswd()
     } else {
         require ROOT_PROFIL . "vue_profil_passwd_modif.php";
     }
-}
-
-// -----------------------------
-/*
- * @brief mettre à jour/changer son profil
- */
-function updateProfil()
-{
-    if (isset($_SESSION['idUser']) AND isset($_POST['fBMProfil'])) {
-        if (isset($_POST['fNLogin'])) {
-            if (isset($_POST['fNPasswdPost'])) {
-                try {
-                    changePasswd($_POST);
-                    $_SESSION['erreur2'] = false;
-                    changeProfil($_POST);
-                    @header("location: index.php?action=vue_profil");
-                } catch (Exception $e) {
-                    $_SESSION['erreur'] = $e->getMessage();
-                    $_SESSION['erreur2'] = true;
-                    @header("location: index.php?action=vue_profil_upd");
-                    exit();
-                }
-            }
-        }
-    } else if (isset($_SESSION['idUser'])) {
-        $infoUser = infoUtilisateur();
-        require ROOT_PROFIL . "vue_profil_upd.php";
-    } else {
-        require "vue/vue_visiteur.php";
-    }
-
 }
 
 // -----------------------------

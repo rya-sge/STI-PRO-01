@@ -2,7 +2,7 @@
   $titre ='HashMail - erreur visiteur';
 
 // vue_erreur_visiteur.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour l'affichage des erreurs si l'utilisateur n'est pas connecté
 //A la différence de vue_erreur que le gabarit utilisé ne contient pas de bouton.
 //Utilisé pour les erreurs qui affichent une autre page juste en-dessous __________________________________________

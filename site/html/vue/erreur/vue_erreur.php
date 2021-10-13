@@ -2,7 +2,7 @@
   $titre ='HashMail - erreur';
 
 // vue_erreur.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour l'affichage des erreurs si l'utilisateur  est connecté
 // __________________________________________
 

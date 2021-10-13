@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - Logout';
+  $titre ='HashMail - Logout';
 
 // vue_logout.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour se déconnecter du site
 // __________________________________________
 
@@ -19,6 +19,5 @@ ob_start();
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       
