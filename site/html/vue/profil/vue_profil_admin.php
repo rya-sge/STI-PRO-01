@@ -46,7 +46,7 @@ ob_start();
 			</tr>
             <tr>
                 <td>Rôle</td>
-                <td><?php echo $infoUser['idRole']; ?></td>
+                <td><?php  echo $infoUser['idRole'] == 1 ? "Administrateur" : "Collaborateur"; ?></td>
                 <td></td>
             </tr>
 			<tr>
