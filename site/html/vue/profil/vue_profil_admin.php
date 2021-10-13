@@ -1,5 +1,5 @@
 <?php
-  $titre ='TheDeveloperSpellbook - Profil utilisateur';
+  $titre ='HashMail - Profil utilisateur';
 
 // vue_profil_admin.php
 // Date de création : 07/10/2021

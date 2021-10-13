@@ -2,7 +2,7 @@
   $titre ='HashMail-message';
 
 // vue_lieu.php
-// Date de création : 16/05/2017
+// Date de création : 07/10/2021
 // Auteur : RSA
 // Fonction : vue pour afficher les informations d'un lieu en particulier.
 // _______________________________

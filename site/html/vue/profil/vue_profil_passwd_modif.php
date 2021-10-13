@@ -1,8 +1,8 @@
 <?php
-  $titre ='TheDeveloperSpellbook - passwd modif';
+  $titre ='HashMail - passwd modif';
 
 // vue_profil_passwd_modif.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue pour modifier son mot de passe
 // __________________________________________
 
@@ -32,6 +32,5 @@ Modifier votre mot de passe
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       

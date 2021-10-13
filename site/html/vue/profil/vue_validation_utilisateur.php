@@ -1,8 +1,8 @@
 <?php
-$titre ='TheDeveloperSpellbook - confirmation du compte';
+$titre ='HashMail - confirmation du compte';
 
 // vue_validation_utilisateur.php
-// Date de création : 24/12/2020
+// Date de création : 07/10/2021
 // Fonction : vue qui indique à l'utilisateur qu'il doit encore valider son compte via un lien
 // _______________________________
 

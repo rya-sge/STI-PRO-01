@@ -2,7 +2,7 @@
 $titre = 'HashMail - Ajouter un boiteMail';
 
 // vue_message_add.php
-// Date de création : 10/01/2021
+// Date de création : 07/10/2021
 // Fonction : vue pour ajouter un boiteMail
 // __________________________________________
 

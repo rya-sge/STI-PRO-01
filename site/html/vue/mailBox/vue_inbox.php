@@ -2,7 +2,7 @@
 $titre = 'HashMail - Liste des utilisateurs';
 
 // vue_user_gestion.php
-// Date de création : 09/01/2021
+// Date de création : 07/10/2021
 // Fonction : vue pour gérer les rôles des utilisateurs sur le site
 // __________________________________________
 

@@ -1,5 +1,5 @@
 <?php
-  $titre ='TheDeveloperSpellbook - inscription';
+  $titre ='HashMail - inscription';
 
 // vue_inscription.php
 // Date de création : 24/12/2020
@@ -39,6 +39,5 @@ ob_start();
   $contenu = ob_get_clean();
   require 'vue/gabarit_visiteur.php';
 ?>  
-      
       
       
