@@ -25,6 +25,26 @@ Le répertoire "html" contient :
 
 Le mot de passe pour phpliteadmin est "admin".
 
+## Présentation du site
+
+
+
+Après s'être connecté, un utilisateur peut aller sur InBox pour afficher la liste des messages. Ceux-ci seront triés par date de réception. Tout à droite, dans l'encadré rouge, trois boutons permettent de :
+
+1) Supprimer le message
+
+2) Afficher le message
+
+3) Ecrire une réponse
+
+![menu](doc/assets/menu.PNG)
+
+
+
+En cliquant sur le bouton Profil, l'utilisateur pourra modifié son profil.
+
+
+
 ## Source 
 
 Une partie du design et de la structure du code provient du travail de fin de CFC de Ryan Sauge dont le code est disponible publiquement :

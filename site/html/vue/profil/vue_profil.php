@@ -46,7 +46,7 @@ ob_start();
 			</tr>
             <tr>
                 <td>Rôle</td>
-                <td><?php echo $_SESSION['idRole']; ?></td>
+                <td><?php  echo  $_SESSION['idRole'] == 1 ? "Administrateur" : "Collaborateur"; ?></td>
             </tr>
 			<tr>
 				<td>Etat du compte</td>
