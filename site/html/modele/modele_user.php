@@ -129,6 +129,9 @@ function checkLogin($postArray)
     $passwdPost = $postArray["fPasswd"];
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();
+    if ($resultats['isValid'] == 0) {
+        throw new Exception("Le compte est inactif");
+    }
     if (empty($resultats['name'])) {
         throw new Exception("Les données d'authentification sont incorrectes");
     }

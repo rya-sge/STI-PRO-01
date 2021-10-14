@@ -25,9 +25,11 @@ Le répertoire "html" contient :
 
 Le mot de passe pour phpliteadmin est "admin".
 
+
+
 ## Présentation du site
 
-
+## Inbox
 
 Après s'être connecté, un utilisateur peut aller sur InBox pour afficher la liste des messages. Ceux-ci seront triés par date de réception. Tout à droite, dans l'encadré rouge, trois boutons permettent de :
 
@@ -37,13 +39,34 @@ Après s'être connecté, un utilisateur peut aller sur InBox pour afficher la l
 
 3) Ecrire une réponse
 
-![menu](doc/assets/menu.PNG)
-
-
+![menu](doc\assets\menu.PNG)
 
 En cliquant sur le bouton Profil, l'utilisateur pourra modifié son profil.
 
 
+
+## Administration
+
+### Page d'administration
+
+Un administrateur peut gérer les utilisateurs et modifier leur profil. 
+
+- L'onglet "Administration", en rouge, permet d'accéder à cette page. 
+
+- Dans l'encadré vert se trouve les boutons permettant de supprimer et de modifier le profil.
+- Dans l'encadré mauve, l'administrateur peut modifier le rôle de l'utilisateur
+
+![page-administration-2](doc\assets\page-administration-2.PNG)
+
+## Page de profil
+
+Une fois que l'administrateur a accéder au profil de l'utilisateur, il peut :
+
+1) Modifier le mot de passe (encadré n°1)
+
+2) Modifier l'activité du compte (encadré n°2)
+
+![profil-admin](doc\assets\profil-admin.png)
 
 ## Source 
 
