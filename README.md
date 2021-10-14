@@ -66,7 +66,7 @@ Une fois que l'administrateur a accéder au profil de l'utilisateur, il peut :
 
 2) Modifier l'activité du compte (encadré n°2)
 
-![profil-admin](doc/assets/profil-admin.png)
+![profil-admin](doc/assets/profil-admin.PNG)
 
 ## Source 
 
