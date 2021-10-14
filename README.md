@@ -8,6 +8,16 @@ Ce site permet de tester différents failles de sécurité.
 
 Si vous utilisez l'image Docker proposée pour le cours, vous pouvez copier directement le répertoire "site" et son contenu (explications dans la donnée du projet).
 
+#### Install Docker 
+
+Une fois le repos git cloné, il y a deux scripts nommés "install" à la racine du projet. Le fichier .bat est pour Windows et le .sh pour Linux et MacOS.
+
+Le script installera l'image docker automatiquement et lancera les deux commandes pour démarrer nginx et le serveur php.
+
+Une fois le script exécuté vous n'avez plus qu'à aller sur votre navigateur et aller sur l'url : [http://localhost:8080/](http://localhost:8080/)
+
+## Description du repo git
+
 Le répertoire "site" contient deux répertoires :
 
     - databases
