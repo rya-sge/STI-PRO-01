@@ -16,6 +16,15 @@ Le script installera l'image docker automatiquement et lancera les deux commande
 
 Une fois le script exécuté vous n'avez plus qu'à aller sur votre navigateur et aller sur l'url : [http://localhost:8080/](http://localhost:8080/)
 
+Note : Si vous stoppez le conteneur docker, il vous faudra exécuter les commandes suivantes après l'avoir relancé :
+
+```bash
+docker exec -u root sti_project service nginx start
+docker exec -u root sti_project service php5-fpm start
+```
+
+
+
 ## Description du repo git
 
 Le répertoire "site" contient deux répertoires :
@@ -34,6 +43,21 @@ Le répertoire "html" contient :
     - phpliteadmin.php : une interface d'administration pour la base de données SQLite qui se trouve dans le repertoire databases
 
 Le mot de passe pour phpliteadmin est "admin".
+
+## Configurations
+
+#### Base de donnée
+
+La base de donnée est déjà prête à l'emploi et vous n'avez pas à y toucher. Toutefois dans le cas ou vous voudriez la reconstruire pour une raison ou une autre, dans le dossier "ScriptsSQL", il y a le script de création de la base de donnée. A noter qu'il vous faudra supprimer manuellement toutes les tables de la base de donnée avant de l'utiliser.
+
+#### Utilisateurs
+
+Deux utilisateurs sont déjà présents dans la base de donnée :
+
+- Un administrateur : login : admin, mdp : admin
+- Un utilisateur : login : user, mdp : user
+
+Il est possible de créer des utilisateurs supplémentaire depuis la page de login du site.
 
 
 
