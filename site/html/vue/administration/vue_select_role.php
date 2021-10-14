@@ -8,6 +8,7 @@
     <option type ="hidden" value="NO_VALUE" selected></option>
     <?php
     foreach (range(1, 2) as $number) {
-        ?>  <option value="<?php echo $number?>"><?php echo $number?></option>
+        ?>  <option value="<?php echo $number?>"><?php echo $number == 1 ?
+                "Administrateur" : "Collaborateur";?></option>
     <?php } ?>
 </select>
