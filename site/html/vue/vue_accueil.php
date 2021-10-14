@@ -2,7 +2,7 @@
 $titre = 'HashMail - Accueil';
 
 // vue_accueil.php
-// Date de création : 24/12/2020
+// Date de création : 11.10.2021
 // Fonction : vue pour l'affichage page d'accueil
 // _______________________________
 
