@@ -36,7 +36,7 @@ function accueil()
  */
 function mailInbox(){
     $message = listMailInbox();
-    require ROOT_MAILBOX. "/vue_inbox.php";
+    require "vue/mailBox/vue_inbox.php";
 }
 
 function readMessage(){
@@ -44,7 +44,7 @@ function readMessage(){
     if (isset($_GET['qIdMessage']))
     {
         $resultat = getMessageContent($_GET['qIdMessage']);
-        require ROOT_MAILBOX. "/vue_message.php";
+        require "vue/mailBox/vue_message.php";
 
     }else{
         exit;
@@ -77,7 +77,7 @@ function addMessage()
                 //@header("location: index.php?action=vue_algorithme_add");
             }
     }
-    require ROOT_MAILBOX. "/vue_message_add.php";
+    require "vue/mailBox/vue_message_add.php";
 }
 
 function respondMessage(){
@@ -86,9 +86,8 @@ function respondMessage(){
   {
 
       $resultat = getMessageContent($_GET['qIdMessage']);
-      require ROOT_MAILBOX. "/vue_message.php";
       $_POST['recipient'] = $_GET['qIdSender'];
-      require ROOT_MAILBOX. "/vue_message_add.php";
+      require "vue/mailBox/vue_message_response.php";
 
 
   }

@@ -1,4 +1,7 @@
 <?php
+/**Lister les messages reçus pour l'utilisateur
+ * @return false|PDOStatement
+ */
     function listMailInbox()
     {
         $db = getBD();
@@ -15,6 +18,12 @@
         return $db->query($requete);
     }
 
+/**
+ * Récupérer le contenu d'un message
+ * @param $idMessage
+ * @return mixed
+ *
+ */
     function getMessageContent($idMessage)
         {
             $db = getBD();

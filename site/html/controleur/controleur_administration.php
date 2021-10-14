@@ -13,6 +13,9 @@ function roleGestion()
     require "vue/administration/vue_user_gestion.php";
 }
 
+/**
+ * Mise à jour du rôle d'un utilisateur
+ */
 function updUserRole(){
     if (isset($_GET['qIdUser']) && isset($_POST['role'])) {
         try {
@@ -25,6 +28,9 @@ function updUserRole(){
     exit();
 }
 
+/**
+ * Suppression d'un utilisateur
+ */
 function deleteUserForAdmin(){
     if (isset($_GET['qIdUser'])) {
         try {
@@ -39,6 +45,9 @@ function deleteUserForAdmin(){
     @header("location: index.php?action=vue_role_gestion");
 }
 
+/**
+ * Mise à jour du statut de validité d'un utilisateur
+ */
 function updUserValid(){
     if (isset($_GET['qIdUser']) && isset($_POST['valid'])) {
         try {

@@ -25,6 +25,17 @@ docker exec -u root sti_project service php5-fpm start
 
 
 
+### Permissions sur databases  ###
+La création d'un utilisateur, l'envoie de message, etc. nécessite de pouvoir écrire dans le fichier de la base de donnée ainsi de la lire. Pour avoir les droits d'écritures et de lectures, il faut mettre comme propriétaire `www-data`  sur le dossier `databases` et ses sous-répertoires
+
+> sudo docker exec -it b83aad442750  /bin/bash
+>
+> cd usr/share/nginx
+>
+> chown  www-data databases -R
+
+
+
 ## Description du repo git
 
 Le répertoire "site" contient deux répertoires :

@@ -1,5 +1,5 @@
 <?php
-$titre = 'HashMail - Liste des utilisateurs';
+$titre = 'HashMail - inbox';
 
 // vue_user_gestion.php
 // Date de création : 07/10/2021
@@ -10,7 +10,7 @@ $titre = 'HashMail - Liste des utilisateurs';
 ob_start();
 
 ?>
-<h2>Liste des messages</h2>
+<h2>Gestion des utilisateurs</h2>
 <p class="textModif"><?php
     if (isset($_SESSION['modif'])) {
         echo $_SESSION['modif'];
@@ -31,7 +31,7 @@ ob_start();
                 </tr>
                 <?php
                 //Affiche la liste des comptes avec leur catégorie
-                foreach ($message  as $resultat) {
+                foreach ($message as $resultat) {
                     ?>
                     <tr>
                         <td width="20%"><?php echo $resultat['id']; ?></td>
@@ -45,8 +45,8 @@ ob_start();
                                         data-target="#delete"><span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </a>
-                            <a href="index.php?action=vue_message_read&qIdMessage=<?= $resultat['id'];?>">
-                                <button class="btn btn-primary btn-xs" data-title="print" data-toggle="modal"
+                            <a href="index.php?action=vue_message_read&qIdMessage=<?= $resultat['id']; ?>">
+                                <button class="btn btn-primary btn-xs" data-title="update" data-toggle="modal"
                                         data-target="#delete"><span class="glyphicon glyphicon-sunglasses"></span>
                                 </button>
                             </a>
