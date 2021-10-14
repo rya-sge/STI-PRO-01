@@ -39,7 +39,7 @@ Après s'être connecté, un utilisateur peut aller sur InBox pour afficher la l
 
 3) Ecrire une réponse
 
-![menu](doc\assets\menu.PNG)
+![menu](doc/assets/menu.PNG)
 
 En cliquant sur le bouton Profil, l'utilisateur pourra modifié son profil.
 
@@ -56,7 +56,7 @@ Un administrateur peut gérer les utilisateurs et modifier leur profil.
 - Dans l'encadré vert se trouve les boutons permettant de supprimer et de modifier le profil.
 - Dans l'encadré mauve, l'administrateur peut modifier le rôle de l'utilisateur
 
-![page-administration-2](doc\assets\page-administration-2.PNG)
+![page-administration-2](doc/assets/page-administration-2.PNG)
 
 ## Page de profil
 
@@ -66,7 +66,7 @@ Une fois que l'administrateur a accéder au profil de l'utilisateur, il peut :
 
 2) Modifier l'activité du compte (encadré n°2)
 
-![profil-admin](doc\assets\profil-admin.png)
+![profil-admin](doc/assets/profil-admin.png)
 
 ## Source 
 
