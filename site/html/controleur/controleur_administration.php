@@ -35,11 +35,12 @@ function deleteUserForAdmin(){
     if (isset($_GET['qIdUser'])) {
         try {
             delUser($_GET['qIdUser']);//suppression de l'utilisateur
+            $_SESSION['modif'] = "L'utilisateur a été supprimé";
         } catch (Exception $e) {
             trigger_error($e->getMessage(), E_USER_ERROR);
             $_SESSION['erreur'] = $e->getMessage();
         }
-    }{
+    }else{
         $_SESSION['modif'] = "Error : user has not been deleted";
     }
     @header("location: index.php?action=vue_role_gestion");
